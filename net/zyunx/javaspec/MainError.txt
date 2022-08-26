@@ -1,0 +1,21 @@
+package net.zyunx.javaspec;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Vector;
+
+public class Main {
+  public static void main(String[] args) throws IOException {
+    String javaFile = args[0];
+    FileInputStream in = new FileInputStream(javaFile);
+    Vector sourceChars = FirstStepScanner.scan(in);
+    in.close();
+    //EscapedInputCharacterScanner.print(sourceChars);
+
+    SecondStepSource source2 = SecondStepScanner.scan(sourceChars);
+    /*SecondStepScanner.print(sourceInput);/
+
+    ThirdStepSource source3 = ThirdStepScanner.scan(source2);
+    ThirdStepScanner.print(source3);
+  }
+}
